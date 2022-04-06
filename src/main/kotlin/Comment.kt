@@ -3,7 +3,6 @@ data class Comment(
     val noteId: Int,
     val date: Int,
     val text: String,
-
 ) {
 
 }
