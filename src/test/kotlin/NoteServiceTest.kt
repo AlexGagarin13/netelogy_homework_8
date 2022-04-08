@@ -6,6 +6,12 @@ class NoteServiceTest {
 
     @Test
     fun addNote() {
+        val service = NoteService()
+        val note1 = Note(0, 1, "First", "Первая", 10, emptyList(), emptyList(), 0, "###")
+
+        val result = service.addNote(note1)
+
+        assertNotEquals(result.id, 0)
     }
 
     @Test
