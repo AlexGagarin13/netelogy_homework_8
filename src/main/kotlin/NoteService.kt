@@ -76,7 +76,6 @@ class NoteService {
                     title = title,
                     text = text
                 )
-                println(notes)
                 return true
             }
         }
@@ -97,11 +96,13 @@ class NoteService {
         for (note in notes) {
             val tempListOfComments = note.comments.toMutableList()
             for (comment in note.comments) {
-                tempListOfComments[note.comments.indexOf(comment)] = comment.copy(
-                    text = message
-                )
-                notes[notes.indexOf(note)] = note.copy(comments = tempListOfComments)
-                return true
+                if (comment.id == commentId) {
+                    tempListOfComments[note.comments.indexOf(comment)] = comment.copy(
+                        text = message
+                    )
+                    notes[notes.indexOf(note)] = note.copy(comments = tempListOfComments)
+                    return true
+                }
             }
         }
         println("Такого комментария не существует!")
@@ -153,10 +154,9 @@ class NoteService {
                         deletedComments = tempListOfDeletedComments
                     )
                     notes[notes.indexOf(note)] = updatedNote
+                    return true
                 }
             }
-            println(notes)
-            return true
         }
         return false
     }

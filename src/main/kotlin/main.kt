@@ -15,10 +15,9 @@ fun main() {
     val comment4 = Comment(4, 1, 25, "Comment4")
     service.createComment(comment1)
 
-    service.createComment(comment4)
-    service.createComment(comment3)
-    service.deleteComment(1)
-    service.restoreComment(1)
+//    service.createComment(comment1)
+//    service.editComment(1, "###")
 
+service.getNotes()
 
 }
